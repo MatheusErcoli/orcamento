@@ -21,4 +21,5 @@ switch ($method) {
         $data = json_decode(file_get_contents('php://input'), true);
         $controller->create($data);
         break;
+    
 }

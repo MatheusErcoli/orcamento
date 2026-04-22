@@ -23,7 +23,7 @@ class Orcamento
         );
         $stmt->execute([
             $data['cliente'],
-            $data['data']
+            $data['data_solicitacao']
         ]);
 
         return $this->conexao->lastInsertId();
