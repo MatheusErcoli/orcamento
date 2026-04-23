@@ -1,15 +1,15 @@
 <?php
 
-class Item {
+class ProdutoOrcamento {
     private $conexao;
-    private $table = "itens";
+    private $table = "produtoorcamento";
 
     public function __construct($db) {
         $this->conexao = $db;
     }
 
-    public function create($orcamentoId, $itens) {
-        foreach ($itens as $item){
+    public function create($orcamentoId, $produtos) {
+        foreach ($produtos as $produto){
             $stmt = $this->conexao->prepare(
                 "INSERT INTO {$this->table}
                 (orcamento_id, produto, quantidade, preco)
@@ -18,13 +18,13 @@ class Item {
 
             $stmt->execute([
                 $orcamentoId,
-                $item['produto'],
-                $item['quantidade'],
-                $item['preco']
+                $produto['nome'],
+                $produto['quantidade'],
+                $produto['valor_unitario']
             ]);
         }
     }
-    public function getItensByOrcamentoId($orcamentoId) {
+    public function getProdutosByOrcamentoId($orcamentoId) {
         $stmt = $this->conexao->prepare(
             "SELECT * FROM {$this->table} WHERE orcamento_id=?"
         );

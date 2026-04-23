@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../models/Orcamento.php';
-require_once __DIR__ . '/../models/Item.php';
+require_once __DIR__ . '/../models/ProdutoOrcamento.php';
 require_once __DIR__ . '/../controllers/OrcamentoController.php';
 
 $database = new Database();

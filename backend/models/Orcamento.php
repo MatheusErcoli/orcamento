@@ -12,7 +12,7 @@ class Orcamento
 
     public function getAll()
     {
-        $stmt = $this->conexao->query("SELECT * FROM {$this->table}");
+        $stmt = $this->conexao->query("SELECT * FROM {$this->table} ORDER BY id DESC");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
