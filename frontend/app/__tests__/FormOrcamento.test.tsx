@@ -9,7 +9,7 @@ afterEach(() => {
 
 describe("FormOrcamento", () => {
 
-  test("renderiza os campos principais", () => {
+  test("Esse teste renderiza os campos principais", () => {
     render(<FormOrcamento />);
 
     expect(
@@ -21,7 +21,7 @@ describe("FormOrcamento", () => {
     ).toBeInTheDocument();
   });
 
-  test("permite digitar no campo cliente", async () => {
+  test("Esse teste permite digitar no campo cliente", async () => {
     render(<FormOrcamento />);
 
     const input = screen.getAllByPlaceholderText("Digite nome do cliente...")[0];
@@ -31,7 +31,7 @@ describe("FormOrcamento", () => {
     expect(input).toHaveValue("Matheus");
   });
 
-  test("adiciona produto na lista", async () => {
+  test("Esse teste adiciona produto na lista", async () => {
     render(<FormOrcamento />);
 
     const select = screen.getAllByRole("combobox")[0];
