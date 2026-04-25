@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_orcamento
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: orcamento
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  php:
+    build: .
+    container_name: php_orcamento
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    working_dir: /app
+    command: php -S 0.0.0.0:8000
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_data:

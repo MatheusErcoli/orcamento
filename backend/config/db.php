@@ -1,10 +1,10 @@
 <?php
 
 class Database {
-    private $host = "localhost";
-    private $db_name = "orcamento_app";
+    private $host = "mysql";
+    private $db_name = "orcamento";
     private $username = "root";
-    private $password = "";
+    private $password = "root";
 
     public function conexao(){
         $conexao = null;
