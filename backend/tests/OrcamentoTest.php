@@ -2,26 +2,28 @@
 
 use PHPUnit\Framework\TestCase;
 
-require_once __DIR__ . '/../config/db.php';
 require_once __DIR__ . '/../models/Orcamento.php';
+require_once __DIR__ . '/../config/db.php';
 
 class OrcamentoTest extends TestCase
 {
-    private $db;
     private $orcamento;
 
     protected function setUp(): void
     {
-        $database = new Database();
-        $this->db = $database->conexao();
+        putenv("DB_HOST=127.0.0.1");
+        putenv("DB_PORT=3307");
 
-        $this->orcamento = new Orcamento($this->db);
+        $database = new Database();
+        $db = $database->conexao();
+
+        $this->orcamento = new Orcamento($db);
     }
 
     public function testCreateOrcamento()
     {
         $data = [
-            'cliente' => 'Teste PHPUnit',
+            'cliente' => 'Teste Cliente',
             'data_solicitacao' => '2026-01-01'
         ];
 

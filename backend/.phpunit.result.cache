@@ -1,1 +1,1 @@
-{"version":2,"defects":[],"times":{"OrcamentoTest::testCreateOrcamento":0.339,"OrcamentoTest::testGetAllOrcamentos":0.025}}
+{"version":2,"defects":{"OrcamentoTest::testCreateOrcamento":8,"OrcamentoTest::testGetAllOrcamentos":8},"times":{"OrcamentoTest::testCreateOrcamento":0.05,"OrcamentoTest::testGetAllOrcamentos":0.001}}
