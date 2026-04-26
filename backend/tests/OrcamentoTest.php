@@ -7,35 +7,35 @@ require_once __DIR__ . '/../config/db.php';
 
 class OrcamentoTest extends TestCase
 {
-    private $orcamento;
+    private $db;
 
     protected function setUp(): void
     {
-        putenv("DB_HOST=127.0.0.1");
-        putenv("DB_PORT=3307");
-
         $database = new Database();
-        $db = $database->conexao();
-
-        $this->orcamento = new Orcamento($db);
+        $this->db = $database->conexao();
     }
 
     public function testCreateOrcamento()
     {
-        $data = [
-            'cliente' => 'Teste Cliente',
-            'data_solicitacao' => '2026-01-01'
+        $orcamento = new Orcamento($this->db);
+
+        $dados = [
+            "cliente" => "Teste PHPUnit",
+            "data_solicitacao" => "2026-01-01",
+            "produtos" => []
         ];
 
-        $id = $this->orcamento->create($data);
+        $resultado = $orcamento->create($dados);
 
-        $this->assertNotEmpty($id);
+        $this->assertGreaterThan(0, $resultado);
     }
 
     public function testGetAllOrcamentos()
     {
-        $result = $this->orcamento->getAll();
+        $orcamento = new Orcamento($this->db);
 
-        $this->assertIsArray($result);
+        $resultado = $orcamento->getAll();
+
+        $this->assertIsArray($resultado);
     }
 }

@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="vendor/autoload.php">
+    
     <testsuites>
-        <testsuite name="Testes Backend">
+        <testsuite name="Application Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
+
+    <php>
+        <env name="DB_HOST" value="127.0.0.1"/>
+        <env name="DB_PORT" value="3307"/>
+    </php>
+
 </phpunit>
